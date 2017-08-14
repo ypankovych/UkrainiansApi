@@ -33,8 +33,8 @@ and you'll see this:
 Example: inviteAllFriendsInGroup(groupID = 1337)
 This method will added all your friends into the group
 ```
-# Contacts
+# Contacts.
 * VK: https://vk.com/id151911284
 * Telegram: @PavelDurmanov (https://t.me/PavelDurmanov)
 
-__Updates will be in the future__
+__Updates will be in the future.__
