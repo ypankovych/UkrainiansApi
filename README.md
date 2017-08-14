@@ -19,11 +19,12 @@
 
 # Examples for each method in method documentation.
 For example type:
-
+```
 from UkrainiansApi import inviteAllFriendsInGroup
 print(inviteAllFriendsInGroup.__doc__)
-
+```
 and you will se this:
-		
-		Example: inviteAllFriendsInGroup(groupID = 1337)
-		This method will added all your friends into the group
+```
+Example: inviteAllFriendsInGroup(groupID = 1337)
+This method will added all your friends into the group
+```
