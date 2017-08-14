@@ -23,7 +23,7 @@ For example type:
 from UkrainiansApi import inviteAllFriendsInGroup
 print(inviteAllFriendsInGroup.__doc__)
 ```
-and you'll se this:
+and you'll see this:
 ```
 Example: inviteAllFriendsInGroup(groupID = 1337)
 This method will added all your friends into the group
