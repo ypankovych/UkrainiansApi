@@ -16,6 +16,11 @@
 * makeLike
 * makeShare
 * wallPost
+* getMutualFriends
+* getGroups
+* leaveGroup
+* joinGroup
+* searchGroups
 
 # Examples for each method in method documentation.
 For example type:
