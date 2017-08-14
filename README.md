@@ -23,7 +23,7 @@
 * searchGroups
 
 # Examples for each method in method documentation.
-For example type:
+For get example type:
 ```
 from UkrainiansApi import inviteAllFriendsInGroup
 print(inviteAllFriendsInGroup.__doc__)
