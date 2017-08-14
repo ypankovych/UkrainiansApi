@@ -25,14 +25,32 @@
 # Examples for each method in method documentation.
 For get example type:
 ```
-from UkrainiansApi import inviteAllFriendsInGroup
-print(inviteAllFriendsInGroup.__doc__)
+from UkrainiansApi import searchGroups
+print(searchGroups.__doc__)
 ```
 and you'll see this:
 ```
-Example: inviteAllFriendsInGroup(groupID = 1337)
-This method will added all your friends into the group
+Example: searchGroups(skip = 50, orderby = 1)
+Default this method return 50 groups
+Param 'orderby', values: 0 - sort by relevance, 1 - sort by followers count
+This method will return json object
 ```
+## How its works:
+
+```
+from UkrainiansApi import Session
+
+sessionObject = Session(userName = 'login', password = 'password')
+groups = sessionObject.searchGroups(skip = 0, orderby = 1)['items'][0]
+print(groups)
+```
+__Output:__
+
+```
+{'routeId': 32, 'name': 'Ukrainians Official', 'cover': 'https://produkrainians.blob.core.windows.net/images/32/594bddeab7fa9a178cb5aa1b/community/cover/f3/4735ba6abe.png', 'photo': 'https://produkrainians.blob.core.windows.net/images/32/594bddeab7fa9a178cb5aa1b/community/photo/f4/7903c9c962.png',
+    'type': 0, 'accessType': 0, 'counts': {'followers': 32669, 'posts': 0}, 'admins': [], 'dateOfCreation': '0001-01-01T00:00:00+00:00', 'score': 0.0, 'isDeleted': False, 'isBanned': False, 'subjectFirst': 1, 'subjectSecond': 1, 'subjectThird': 5, 'follower': 0, 'isAdmin': False}
+```
+
 # Contacts.
 * VK: https://vk.com/id151911284
 * Telegram: @PavelDurmanov (https://t.me/PavelDurmanov)
