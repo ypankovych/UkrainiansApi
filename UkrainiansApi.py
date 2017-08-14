@@ -20,19 +20,64 @@ class Session:
 	acceptFollowersUrl = 'https://api.ukrainians.co/v1/contacts/accept'
 	deleteFriendUrl = 'https://api.ukrainians.co/v1/contacts/delete'
 	commentAddUrl = 'https://api.ukrainians.co/v1/comment/add'
+	communitySearchUrl = 'https://api.ukrainians.co/v1/community/search?orderby={}&skip={}'
+	communityFollowUrl = 'https://api.ukrainians.co/v1/community/follow/{}'
+	unFollowUrl = 'https://api.ukrainians.co/v1/community/unfollow/{}'
+	getMyGroupsUrl = 'https://api.ukrainians.co/v1/community/my?includeCount=true'
+	getMutualFriendsUrl = 'https://api.ukrainians.co/v1/contacts/mutual?isUser=true&routeId={}&skip={}'
 
 	def __init__(self, userName, password):
+		# Authorization payloads
 		self.AuthPL = {
 			'grant_type': 'password',
 			'userName': userName, 
 			'password': password
 		}
+		# Info about your account
 		self.usrinfo = requests.post(Session.url, data = self.AuthPL).json()
+		# Request headers
 		self.headers = {
 			'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36',
 			'Accept-Language': 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4,uk;q=0.2',
 			'Authorization': 'bearer ' + self.usrinfo['access_token']
 		}
+
+	def getMutualFriends(self, userID, skip = 0):
+		'''
+		Example: getMutualFriends(userID = 1337, skip = 0)
+		This method will return json object
+		'''
+		return requests.get(Session.getMutualFriendsUrl.format(userID, skip), headers = self.headers).json()
+
+	def getGroups(self):
+		'''
+		Example: getGroups()
+		This method will return json object
+		'''
+		return requests.get(Session.getMyGroupsUrl, headers = self.headers).json()
+
+	def leaveGroup(self, groupID):
+		'''
+		Example: leaveGroup(1337)
+		This method will return json object
+		'''
+		return requests.post(Session.unFollowUrl.format(groupID), headers = self.headers).json()
+
+	def joinGroup(self, groupID):
+		'''
+		Example: joinGroup(groupID = 1337)
+		This method will return json object
+		'''
+		return requests.post(Session.communityFollowUrl.format(groupID), headers = self.headers).json()
+
+	def searchGroups(self, skip = 0, orderby = 0):
+		'''
+		Example: searchGroups(skip = 50, orderby = 1)
+		Default this method return 50 groups
+		Param 'orderby', values: 0 - sort by relevance, 1 - sort by followers count
+		This method will return json object
+		'''
+		return requests.get(Session.communitySearchUrl.format(orderby, skip), headers = self.headers).json()
 
 	def addComment(self, postID, text):
 		'''
@@ -62,13 +107,15 @@ class Session:
 			"routeId": userID
 			}, headers = self.headers).json()
 
-	def getFollowers(self, skip = 0):
+	def getFollowers(self, skip = 0, userID = None):
 		'''
-		Example: getFollowers()
+		Example: getFollowers(userID = 1337, skip = 0)
 		This method will return json object
 		This method will return 20 followers, for get more, set the skip param
 		'''
-		return requests.get(Session.getFollowersUrl.format(self.usrinfo['routeId'], skip), headers = self.headers).json()
+		if userID is None:
+			userID = self.usrinfo['routeId']
+		return requests.get(Session.getFollowersUrl.format(userID, skip), headers = self.headers).json()
 
 	def getMessages(self, userID):
 		'''
@@ -87,7 +134,7 @@ class Session:
 
 	def getFriends(self, userID = None, skip = 0): # return 20 friends without offset
 		'''
-		Example: getMessages(userID = 1337)
+		Example: getMessages(userID = 1337, skip = 0)
 		This method will return json object
 		This method will return 20 friends, for get more, set the skip param
 		'''
@@ -114,7 +161,7 @@ class Session:
 
 	def inviteAllFriendsInGroup(self, groupID, skip = 0):
 		'''
-		Example: inviteAllFriendsInGroup(groupID = 1337)
+		Example: inviteAllFriendsInGroup(groupID = 1337, skip = 0)
 		This method will added all your friends into the group
 		'''
 		while requests.get(Session.inviteFriendsUrl.format(groupID, skip), headers = self.headers).json():
