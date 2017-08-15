@@ -47,8 +47,28 @@ print(groups)
 __Output:__
 
 ```python
-{'routeId': 32, 'name': 'Ukrainians Official', 'cover': 'https://produkrainians.blob.core.windows.net/images/32/594bddeab7fa9a178cb5aa1b/community/cover/f3/4735ba6abe.png', 'photo': 'https://produkrainians.blob.core.windows.net/images/32/594bddeab7fa9a178cb5aa1b/community/photo/f4/7903c9c962.png',
-    'type': 0, 'accessType': 0, 'counts': {'followers': 32669, 'posts': 0}, 'admins': [], 'dateOfCreation': '0001-01-01T00:00:00+00:00', 'score': 0.0, 'isDeleted': False, 'isBanned': False, 'subjectFirst': 1, 'subjectSecond': 1, 'subjectThird': 5, 'follower': 0, 'isAdmin': False}
+{
+    'routeId': 32, 
+    'name': 'Ukrainians Official', 
+    'cover': 'https://produkrainians.blob.core.windows.net/images/32/594bddeab7fa9a178cb5aa1b/community/cover/f3/4735ba6abe.png', 
+    'photo': 'https://produkrainians.blob.core.windows.net/images/32/594bddeab7fa9a178cb5aa1b/community/photo/f4/7903c9c962.png',
+    'type': 0, 
+    'accessType': 0, 
+    'counts': {
+        'followers': 32669, 
+        'posts': 0
+        }, 
+    'admins': [], 
+    'dateOfCreation': '0001-01-01T00:00:00+00:00',
+    'score': 0.0, 
+    'isDeleted': False, 
+    'isBanned': False, 
+    'subjectFirst': 1, 
+    'subjectSecond': 1, 
+    'subjectThird': 5, 
+    'follower': 0, 
+    'isAdmin': False
+}
 ```
 
 # Contacts.
