@@ -35,7 +35,7 @@ Default this method return 50 groups
 Param 'orderby', values: 0 - sort by relevance, 1 - sort by followers count
 This method will return json object
 ```
-## How its works:
+## How it works:
 
 ```python
 from UkrainiansApi import Session
