@@ -21,6 +21,7 @@
 * leaveGroup
 * joinGroup
 * searchGroups
+* setProfilePhoto
 
 # Examples for each method in method documentation.
 For get example type:
