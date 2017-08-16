@@ -72,6 +72,7 @@ __Output:__
 }
 ```
 
+Full [documentation](https://github.com/P-Alban/UkrainiansApi/blob/master/Doc.md)
 # Contacts.
 * VK: https://vk.com/id151911284
 * Telegram: @PavelDurmanov (https://t.me/PavelDurmanov)
