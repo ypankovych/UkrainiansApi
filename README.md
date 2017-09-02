@@ -1,5 +1,7 @@
 # Python Ukrainians-Api
 
+![Python Versions](https://img.shields.io/badge/python-3.x-green.svg)
+
 ## All methods:
 
 * addComment
