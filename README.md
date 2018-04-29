@@ -1,4 +1,4 @@
-# Python Ukrainians-Api
+# Python Ukrainians-Api (obsolete!)
 
 ![Python Versions](https://img.shields.io/badge/python-3.x-green.svg)
 
